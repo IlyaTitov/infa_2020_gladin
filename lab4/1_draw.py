@@ -4,7 +4,7 @@ from pygame.draw import *
 pygame.init()
 
 FPS = 30
-screen = pygame.display.set_mode((400, 400))
+screen = pygame.display.set_mode((500, 400))
 
 rect(screen, (255, 0, 255), (100, 100, 200, 200))
 rect(screen, (0, 0, 255), (100, 100, 200, 200), 5)
