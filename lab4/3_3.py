@@ -2,7 +2,7 @@ import pygame
 from pygame.draw import *
  
 
-def guy(people , x, y):
+def guy(people, x, y):
     '''
         The function draws people 
         
@@ -11,7 +11,7 @@ def guy(people , x, y):
         y - coordinate of head( for female and male is head_y, for child is head_y_child)
     '''
     k = 0
-    feet(people, x, y,k )
+    feet(people, x, y, k)
     
 
     if people == 'male':
@@ -32,7 +32,7 @@ def guy(people , x, y):
     arms(people, x)
 
    
-def feet(people, x, y,k):
+def feet(people, x, y, k):
     if (people == 'female') or (people == 'male'):
         line(screen, pygame.Color("BLACK"), (x + h // 22, y + 6 * h // 11 - h // 55), (x + h // 22 + k // 3, y + 9 * h // 11))              
         line(screen, pygame.Color("BLACK"), (x - h // 22, y + 6 * h // 11 - h // 55), (x - h // 22 - k, y + 9 * h // 11))
@@ -45,7 +45,7 @@ def feet(people, x, y,k):
         line(screen, pygame.Color("BLACK"), (x + h // 22 + k // 3, y + 4 * h // 11), (x + h // 11 + k // 3, y + 4 * h // 11))
         line(screen, pygame.Color("BLACK"), (x - h // 22 - k, y + 4 * h // 11), (x - h // 11 - k, y+ 4 * h // 11)) 
 
-def head(people,x,y ):
+def head(people, x, y ):
     if (people == "child_male") or (people == "child_female"):
         circle(screen, pygame.Color(244, 227, 215), (x, y - 2 * h // 55), h // 20)
     else:
@@ -85,7 +85,7 @@ def ice_cream(x, y, side, k):
     circle(screen, pygame.Color(85, 0, 0), (x + 29 * side * k, y - 33 * k), 12 * k)    #side turns ice cream to the left or to the right (-1, 1) 
     circle(screen, pygame.Color(255, 0, 0), (x + 14 * side * k, y - 42 * k), 12 * k)
     circle(screen, pygame.Color(255, 255, 255), (x + 33 * side * k, y - 50 * k), 12 * k)    #making ice cream
-
+ 
 def heart(x, y, side, k):
     
     polygon(screen, pygame.Color(255, 0, 0), ((x, y), (x, y - 50 * k), (x + 42 * side * k, y - 25 * k)))
@@ -96,10 +96,11 @@ def heart(x, y, side, k):
         
     
 pygame.init()
-
+#constants
 FPS = 30
 HIGHT = 768
 WIDTH = 1032
+
 screen = pygame.display.set_mode((WIDTH, HIGHT))
 p = [180, 250, 330, 395, 635, 720, 790, 860]    # list of  people's x coordinate 
 
@@ -111,21 +112,21 @@ f = 1    #flag for arms of the 2nd woman
 screen.fill(pygame.Color(55, 200, 113))
 rect(screen, pygame.Color(170, 238, 255), (0, 0, WIDTH, HIGHT // 2))    #making sky and grass
 
-guy('male', p[0],head_y) 
-guy('female', p[3],head_y)
+guy('male', p[0], head_y) 
+guy('female', p[3], head_y)
 guy('child_male', p[1], head_y_child)
 guy('child_male', p[2], head_y_child)
 
 
 f = -1
-guy('female', p[4],head_y)
-guy('child_female', p[5],head_y_child)
-guy('child_female', p[6],head_y_child)
-guy('male', p[7],head_y)    #making men and women
+guy('female', p[4], head_y)
+guy('child_female', p[5], head_y_child)
+guy('child_female', p[6], head_y_child)
+guy('male', p[7], head_y)    #making men and women
 
 ice_cream(p[7] + 16 * h // 55, head_y + 19 * h // 55, 1, 1)
 heart(p[0] - 16 * h // 55 - 10, head_y + 19 * h // 55 - 80, -1, 1)
-# делаем соединение мороженного и рук
+# making a combination of ice cream and hands
 line(screen, pygame.Color("BLACK"), (p[3] + 4 * h // 11 - 9, head_y + 4 * h // 55), (p[3] + 4 * h // 11 - 9 - 10, head_y + 4 * h // 55 - 110))
 ice_cream(p[3] + 4 * h // 11 - 9 - 10, head_y + 4 * h // 55 - 110, -1, 2)
 
