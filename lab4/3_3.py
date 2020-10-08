@@ -27,7 +27,7 @@ def guy(people , x, y):
     if people == 'child_male':
         ellipse(screen, pygame.Color(167, 147, 172), ((x - 3 * h // 44, head_y_child), (3 * h // 22, 6 * h // 22))) # draw body  
         k = h // 44
-        
+
     head(people, x, y)
     arms(people, x)
 
@@ -79,6 +79,7 @@ def arms(people, x):
     
 
 def ice_cream(x, y, side, k):
+    
  
     polygon(screen, pygame.Color(255, 204, 0), ((x, y), (x, y - 50 * k), (x + 42 * side * k, y - 25 * k)))
     circle(screen, pygame.Color(85, 0, 0), (x + 29 * side * k, y - 33 * k), 12 * k)    #side turns ice cream to the left or to the right (-1, 1) 
